@@ -1,4 +1,4 @@
-package com.jiale;
+package com.jiale.test;
 
 import com.sun.deploy.util.StringUtils;
 
