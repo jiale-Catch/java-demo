@@ -1,6 +1,4 @@
-package com.jiale.test;
-
-import com.sun.deploy.util.StringUtils;
+package com.jiale.javaSE;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -35,7 +33,7 @@ public class Test {
         }
         return obj;
     }
-    private String camelToUnderline (String str) {
+    private String camelToUnderline(String str) {
         Pattern PATTERN = Pattern.compile("[A-Z0-9]");
         Matcher matcher = PATTERN.matcher(str);
         StringBuffer sb = new StringBuffer();
