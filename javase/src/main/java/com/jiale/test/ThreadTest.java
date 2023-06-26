@@ -1,4 +1,4 @@
-package com.jiale.javaSE;
+package com.jiale.test;
 
 public class ThreadTest {
     public static void main(String[] arg){

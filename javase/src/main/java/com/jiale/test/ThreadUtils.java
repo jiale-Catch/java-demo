@@ -1,4 +1,4 @@
-package com.jiale.javaSE;
+package com.jiale.test;
 
 import java.sql.Time;
 import java.util.Locale;
@@ -82,7 +82,10 @@ public class ThreadUtils {
         getCommonThreadPoolInfo();
         executor.execute(command);
     }
-
+    public static void submit(Runnable command ,CountDownLatch downLatch) {
+        getCommonThreadPoolInfo();
+        executor.submit(command,downLatch);
+    }
     /**
      * 提交任务
      * @param command 线程
