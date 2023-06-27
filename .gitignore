@@ -36,3 +36,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/javase/.gitignore
+/.idea/gradle.xml
+/.idea/sonarlint/issuestore/index.pb
+/.idea/sonarlint/securityhotspotstore/index.pb
+/javase/src/main/java/com/jiale/Main.java
+/.idea/uiDesigner.xml
+/.idea/vcs.xml
