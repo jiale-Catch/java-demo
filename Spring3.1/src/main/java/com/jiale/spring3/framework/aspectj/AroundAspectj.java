@@ -12,7 +12,7 @@ import org.aspectj.lang.annotation.Around;
 public class AroundAspectj {
     /**
      * 环绕通知
-     * @param joinPoint 切入点 可以从这里面获取到切入的参数，joinPoint。arg（）
+     * @param joinPoint 切入点 可以从这里面获取到切入的参数，joinPoint.arg()
      * @return
      * @throws Throwable
      */

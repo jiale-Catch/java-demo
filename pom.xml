@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>javase</module>
+        <module>jdk11-demo</module>
     </modules>
 
     <properties>
