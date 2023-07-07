@@ -19,7 +19,6 @@ class Singleton {
 
     private Singleton() {
     }
-
     public static Singleton getUniqueInstance() {
         if (uniqueInstance == null) {
             uniqueInstance = new Singleton();
