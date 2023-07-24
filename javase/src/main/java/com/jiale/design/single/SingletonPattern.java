@@ -1,4 +1,4 @@
-package com.jiale.design;
+package com.jiale.design.single;
 
 public class SingletonPattern {
 }
