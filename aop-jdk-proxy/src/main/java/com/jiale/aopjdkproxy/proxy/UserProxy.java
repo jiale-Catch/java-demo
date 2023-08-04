@@ -25,10 +25,8 @@ public class UserProxy {
             @Override
             public Object invoke(Object proxy, Method method, Object[] objects) throws Throwable {
                 String methodName = method.getName();
-                // log - before method
                 System.out.println("[before] execute method: " + methodName);
 
-                // call method
                 Object result = null;
                 try {
                     // 前置通知

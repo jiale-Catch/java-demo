@@ -1,4 +1,4 @@
-package com.jiale.test;
+package com.jiale.test.thread;
 
 import java.util.concurrent.CountDownLatch;
 
