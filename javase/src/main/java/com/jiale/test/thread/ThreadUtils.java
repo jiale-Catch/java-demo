@@ -1,6 +1,5 @@
-package com.jiale.test;
+package com.jiale.test.thread;
 
-import java.sql.Time;
 import java.util.Locale;
 import java.util.concurrent.*;
 

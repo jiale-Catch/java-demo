@@ -1,4 +1,4 @@
-package com.jiale.test;
+package com.jiale.test.thread;
 
 public class ThreadTest {
     public static void main(String[] arg){
@@ -16,6 +16,16 @@ public class ThreadTest {
             ThreadUtils.execute(()-> System.out.println(Thread.currentThread().getName()+"----->测试thread2 "));
             ThreadUtils.execute(()-> System.out.println(Thread.currentThread().getName()+"----->测试thread 3"));
             ThreadUtils.execute(()-> System.out.println(Thread.currentThread().getName()+"----->测试thread 4"));
+     }
+
+
+     private static String returnTest(Integer time){
+         try {
+             Thread.sleep(time);
+         } catch (InterruptedException e) {
+             throw new RuntimeException(e);
+         }
+         return "sucess";
      }
 
 }

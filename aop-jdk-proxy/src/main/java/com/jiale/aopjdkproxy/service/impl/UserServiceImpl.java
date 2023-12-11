@@ -2,10 +2,12 @@ package com.jiale.aopjdkproxy.service.impl;
 
 import com.jiale.aopjdkproxy.domain.User;
 import com.jiale.aopjdkproxy.service.UserService;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Override
