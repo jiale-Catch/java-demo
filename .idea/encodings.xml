@@ -5,10 +5,13 @@
     <file url="file://$PROJECT_DIR$/aop-jdk-proxy/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/aop-jdk-proxy/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javase/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javase/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javase/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdk11-demo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jdk11-demo/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdk11-demo/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>

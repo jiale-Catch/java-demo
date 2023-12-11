@@ -18,4 +18,14 @@ public class ThreadTest {
             ThreadUtils.execute(()-> System.out.println(Thread.currentThread().getName()+"----->测试thread 4"));
      }
 
+
+     private static String returnTest(Integer time){
+         try {
+             Thread.sleep(time);
+         } catch (InterruptedException e) {
+             throw new RuntimeException(e);
+         }
+         return "sucess";
+     }
+
 }
