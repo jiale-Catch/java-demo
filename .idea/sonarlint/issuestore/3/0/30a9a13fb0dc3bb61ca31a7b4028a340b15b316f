@@ -1,0 +1,15 @@
+
+k	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëñœÿÿÿÿÿ
+k	java:S117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁŒŞ úÿÿÿÿ
+T
+java:S3516
+"9Refactor this method to not always return the same value.(ÈÌÖ¬ûÿÿÿÿ
+G
+java:S3011",This accessibility update should be removed.(Í”úÆùÿÿÿÿ
+G
+java:S3011",This accessibility bypass should be removed.(ÌàÂœùÿÿÿÿ
+G
+java:S1144
+",Remove this unused private "convert" method.(ÈÌÖ¬ûÿÿÿÿ
+K
+java:S1144."5Remove this unused private "underlineToCamel" method.(Æ¼°”

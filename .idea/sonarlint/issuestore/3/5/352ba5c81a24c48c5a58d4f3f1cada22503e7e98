@@ -1,0 +1,27 @@
+
+]	java:S125"<This block of commented-out lines of code should be removed.(©¿…·üÿÿÿÿ8¶íË›Ë1
+E	java:S106"+Replace this use of System.out by a logger.(ÄÓÓ¦ùÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(°ÊÀª
+@	java:S106!"+Replace this use of System.out by a logger.(ÛÌğ°
+@	java:S106""+Replace this use of System.out by a logger.(èÂÕÑ
+@	java:S106%"+Replace this use of System.out by a logger.(—å¾í
+@	java:S106-"+Replace this use of System.out by a logger.(“ÃÎ
+E	java:S106."+Replace this use of System.out by a logger.(•‚Éùùÿÿÿÿ
+Z
+java:S2147?"DCombine this catch with the one at line 61, which has the same body.(ä ¹€
+E	java:S1068"+Replace this use of System.out by a logger.(Ğ¸—Œşÿÿÿÿ
+@	java:S106;"+Replace this use of System.out by a logger.(ª–·Õ
+G	java:S106Q"+Replace this use of System.out by a logger.(ø×ÁÙ8ÿíË›Ë1
+G	java:S106^"+Replace this use of System.out by a logger.(–—Şö8‚ïË›Ë1
+M
+java:S2446`"0"notify" may not wake up the appropriate thread.(üëÔ÷8…ïË›Ë1
+G	java:S106o"+Replace this use of System.out by a logger.(–—Şö8ˆïË›Ë1
+M
+java:S2446q"0"notify" may not wake up the appropriate thread.(üëÔ÷8‰ïË›Ë1
+H	java:S106†"+Replace this use of System.out by a logger.(–—Şö8ïË›Ë1
+H	java:S106"+Replace this use of System.out by a logger.(–—Şö8‘ïË›Ë1
+Y
+java:S1128	"CRemove this unused import 'java.util.concurrent.CompletableFuture'.(ôŞä´
+Y
+java:S1128
+"<Remove this unused import 'java.util.concurrent.locks.Lock'.(µÒÌÿ8“ïË›Ë1

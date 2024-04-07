@@ -1,0 +1,9 @@
+
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ûåíóÿÿÿÿÿ
+t	java:S115""ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ø’°Ðùÿÿÿÿ
+n	java:S115,"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ú½Ã@
+A
+java:S1452\"&Remove usage of generic wildcard type.(ÁÇ€äÿÿÿÿÿ
+@	java:S106b"+Replace this use of System.out by a logger.(ç¤“Ð
+@
+java:S3398r"*Move this method into "MakeNameForThread".(â•¢Ý

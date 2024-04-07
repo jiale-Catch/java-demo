@@ -1,0 +1,14 @@
+
+d
+java:S1192
+"GDefine a constant instead of duplicating this literal ":hello" 3 times.(ôË¶Ñ8¨¢ê÷Ş1
+
+java:S1130"€Remove the declaration of thrown exception 'java.util.concurrent.ExecutionException', as it cannot be thrown from method's body.(­Ëê8²¢ê÷Ş1
+”
+java:S1130"wRemove the declaration of thrown exception 'java.lang.InterruptedException', as it cannot be thrown from method's body.(­Ëê8³¢ê÷Ş1
+@	java:S106
+"+Replace this use of System.out by a logger.(ôË¶Ñ
+L	java:S106"+Replace this use of System.out by a logger.(›óš¼üÿÿÿÿ8¶¢ê÷Ş1
+E	java:S106"+Replace this use of System.out by a logger.(«Àë½şÿÿÿÿ
+L	java:S106"+Replace this use of System.out by a logger.(›óš¼üÿÿÿÿ8¹¢ê÷Ş1
+L	java:S106"+Replace this use of System.out by a logger.(«Àë½şÿÿÿÿ8º¢ê÷Ş1

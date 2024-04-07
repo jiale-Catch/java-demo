@@ -1,0 +1,5 @@
+
+K
+java:S6353
+"5Use concise quantifier syntax '?' instead of '{0,1}'.(Å‚õÕ
+?	java:S106"+Replace this use of System.out by a logger.(ÿÏÈP

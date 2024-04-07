@@ -1,0 +1,10 @@
+
+z
+java:S1149"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜Ýâœÿÿÿÿÿ
+z
+java:S1149-"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(˜Ýâœÿÿÿÿÿ
+<
+java:S1659/"!Declare "pos" on a separate line.(£Ÿ˜Òÿÿÿÿÿ
+V	java:S125m"<This block of commented-out lines of code should be removed.(Þ§•ßùÿÿÿÿ
+P	java:S125r"<This block of commented-out lines of code should be removed.(ÌÈŒ_
+@	java:S106v"+Replace this use of System.out by a logger.(ÂÔÒõ

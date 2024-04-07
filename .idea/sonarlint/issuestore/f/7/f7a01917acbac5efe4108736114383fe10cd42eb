@@ -1,0 +1,10 @@
+
+n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ù¼óÙþÿÿÿÿ8 “ž¥Ë1
+{
+java:S3012"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(ÍÍÛÆøÿÿÿÿ8²“ž¥Ë1
+L	java:S106"+Replace this use of System.out by a logger.(ã¿¢Ôùÿÿÿÿ8²“ž¥Ë1
+L	java:S106"+Replace this use of System.out by a logger.(ËÒ¤Éúÿÿÿÿ8³“ž¥Ë1
+A
+java:S1659-"Declare "j" on a separate line.(¹ç‰ºüÿÿÿÿ8´“ž¥Ë1
+Q
+java:S1128"/Remove this unused import 'java.sql.SQLOutput'.(ê¤òÃùÿÿÿÿ8µ“ž¥Ë1
