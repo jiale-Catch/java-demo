@@ -11,6 +11,7 @@
     <modules>
         <module>javase</module>
         <module>jdk11-demo</module>
+        <module>spring-security</module>
     </modules>
 
     <properties>

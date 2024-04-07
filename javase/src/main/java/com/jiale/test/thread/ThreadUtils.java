@@ -59,17 +59,17 @@ public class ThreadUtils {
      */
     private static final RejectedExecutionHandler REJECTED_HANDLER = new ThreadPoolExecutor.CallerRunsPolicy();
 
-    public static class MakeNameForThread implements  ThreadFactory{
+    public static class MakeNameForThread implements ThreadFactory {
         private final String threadNamePrefix;
 
         public MakeNameForThread(String threadNamePrefix) {
-            String format = format(threadNamePrefix, 0);
-            this.threadNamePrefix = format;
+            this.threadNamePrefix = threadNamePrefix;
         }
+
         @Override
-        public Thread newThread(Runnable r) {
-            Thread thread = new Thread(r);
-            thread.setName(threadNamePrefix);
+        public Thread newThread(Runnable runnable) {
+            Thread thread = new Thread(runnable);
+            thread.setName(this.threadNamePrefix + "-" + thread.getId());
             return thread;
         }
     }
