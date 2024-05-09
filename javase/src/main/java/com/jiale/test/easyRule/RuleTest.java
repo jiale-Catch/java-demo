@@ -10,18 +10,20 @@ import org.jeasy.rules.core.RuleBuilder;
 public class RuleTest {
 
     public static void main(String[] args) {
-        RulesEngineParameters parameters = new RulesEngineParameters().skipOnFirstAppliedRule(true);
-        Facts  facts = new Facts();
-        facts.put("rain",true);
-        WeatherRule weatherRule = new WeatherRule();
-        Rules rules = new Rules();
-        rules.register(weatherRule);
-        DefaultRulesEngine defaultRulesEngine = new DefaultRulesEngine(parameters);
-        defaultRulesEngine.fire(rules,facts);
-        System.out.println();
-//        test();
+        testWeather();
+        test();
     }
-
+   public  static  void  testWeather(){
+       RulesEngineParameters parameters = new RulesEngineParameters().skipOnFirstAppliedRule(true);
+       Facts  facts = new Facts();
+       facts.put("rain",true);
+       WeatherRule weatherRule = new WeatherRule();
+       Rules rules = new Rules();
+       rules.register(weatherRule);
+       DefaultRulesEngine defaultRulesEngine = new DefaultRulesEngine(parameters);
+       defaultRulesEngine.fire(rules,facts);
+       System.out.println();
+   }
     public static void test(){
         // 创建规则引擎
         RulesEngineParameters parameters = new RulesEngineParameters().skipOnFirstAppliedRule(true);
