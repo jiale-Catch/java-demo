@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试-监听</title>
+    <!-- 因为 AJAX 库和通用工具的生态已经相当丰富，Vue 核心代码没有重复 -->
+    <!-- 提供这些功能以保持精简。这也可以让你自由选择自己更熟悉的工具。 -->
+    <script src="https://cdn.staticfile.net/axios/0.27.2/axios.min.js"></script>
+    <script src="https://cdn.staticfile.net/vue/3.2.37/vue.global.min.js"></script>
+</head>
+<body>
+<div id = "app">
+    千米 : <input type = "text" v-model = "kilometers"  @focus="currentlyActiveField = 'kilometers'">
+    米 : <input type = "text" v-model = "meters" @focus="currentlyActiveField = 'meters'">
+    <p style = "font-size:25px;">计数器: {{ counter }}</p>
+    <button @click = "counter++" style = "font-size:25px;">点我</button>
+</div>
+<p id="info"></p>
+<script>
+    const app = {
+        data() {
+            return {
+                kilometers : 0,
+                meters:0,
+                counter:1
+            }
+        },
+        watch : {
+            kilometers:function(newValue, oldValue) {
+                // 判断是否是当前输入框
+                if (this.currentlyActiveField === 'kilometers') {
+                    this.kilometers = newValue;
+                    this.meters = newValue * 1000
+                }
+            },
+            meters : function (newValue, oldValue) {
+                // 判断是否是当前输入框
+                if (this.currentlyActiveField === 'meters') {
+                    this.kilometers = newValue/ 1000;
+                    this.meters = newValue;
+                }
+            }
+        }
+    }
+    vm = Vue.createApp(app).mount('#app')
+    vm.$watch('kilometers', function (newValue, oldValue) {
+        // 这个回调将在 vm.kilometers 改变后调用
+        document.getElementById ("info").innerHTML = "修改前值为: " + oldValue + "，修改后值为: " + newValue;
+    })
+    vm.$watch('counter', function(nval, oval) {
+        alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+    });
+
+</script>
+</body>
+</html>

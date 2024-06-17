@@ -1,6 +1,5 @@
 package com.jiale.test.sort;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +7,12 @@ public class kuaishu {
     public static void main(String[] args) {
         int [] nums = new int[]{8,4,53,34,45,6,7,2,3,5,9,33,23,43,44};
         quickSort(nums,0,nums.length-1);
-
+        List list = new ArrayList<>();
+        for (Integer index: nums
+        ) {
+            list.add(index);
+        }// 将基准数交换至两子数组的分界线
+        System.out.println(list);
     }
 
     /* 快速排序 */

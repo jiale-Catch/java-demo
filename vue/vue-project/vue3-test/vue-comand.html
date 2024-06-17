@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试指令 </title>
+    <script src="https://cdn.staticfile.net/vue/3.2.36/vue.global.min.js"></script>
+</head>
+<body>
+<div id = "app" class="app_class">
+    <p v-if="showMessage">
+        {{message}}
+    </p>
+    <p v-else>
+        no hello
+    </p>
+    <ul>
+        <li v-for="item in items" :key="item.id">
+            {{item.text}}
+        </li>
+    </ul>
+    <button v-on:click="showMessage=!showMessage">
+        点击修改上方文字
+    </button>
+    <p v-show="showMessage">
+        v-show 点击上方按钮修改
+    </p>
+    <ul>
+        <li v-for="n in evenNumbers"> {{n}}</li>
+    </ul>
+</div>
+<script>
+    const HelloVueApp = {
+        data() {
+            return {
+                message: 'Hello Vue!!',
+                showMessage: true,
+                items: [
+                    { id: 1, text: 'Item 1' },
+                    { id: 2, text: 'Item 2' },
+                    { id: 3, text: 'Item 3' }
+                ],
+                numbers:[1,2,3,4,5,6]
+            }
+        },
+        methods:{
+            de(){
+                this.showMessage = !this.showMessage
+            }
+
+        },
+        computed:{
+            evenNumbers(){
+                return this.numbers.filter(number => number % 2 === 0)
+            }
+        }
+    }
+    Vue.createApp(HelloVueApp).mount('#app')
+
+</script>
+</body>
+</html>
