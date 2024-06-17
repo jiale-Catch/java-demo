@@ -1,18 +1,37 @@
 package com.jiale.springsecurity.framework.config;
 
+import com.alibaba.fastjson2.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.jiale.springsecurity.framework.filter.JWTAuthenticationFilter;
+import com.jiale.springsecurity.moudle.mapper.UserMapper;
+import com.jiale.springsecurity.moudle.model.Claims;
+import com.jiale.springsecurity.moudle.model.LoginUser;
+import com.jiale.springsecurity.moudle.model.ResponseEntity;
+import com.jiale.springsecurity.moudle.model.entity.UserEntity;
+import com.jiale.springsecurity.moudle.utils.JWTUtil;
+import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.*;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.util.DigestUtils;
-
-import java.util.Arrays;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -22,16 +41,29 @@ import static org.springframework.security.config.Customizer.withDefaults;
  */
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
+    @Resource
+    private UserMapper sysUserMapper;
+
+    @Resource
+    private JWTAuthenticationFilter jwtAuthenticationFilter;
+
     @Bean
-    public UserDetailsService userDetailsService() throws Exception {
-        // ensure the passwords are encoded properly
-        User.UserBuilder users = User.withDefaultPasswordEncoder();
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(users.username("user").password("123456").roles("USER").build());
-        manager.createUser(users.username("admin").password("123456").roles("USER", "ADMIN").build());
-        return manager;
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return username -> {
+            UserEntity user = sysUserMapper.selectOne(new QueryWrapper<UserEntity>().eq("username", username));
+            if (user == null) {
+                throw new UsernameNotFoundException("用户不存在");
+            }
+            return new LoginUser(user);
+        };
     }
 
     @Bean
@@ -40,6 +72,44 @@ public class SecurityConfig {
         http.securityMatcher("/api/**").authorizeHttpRequests(authorize -> authorize.anyRequest().hasRole("ADMIN")).httpBasic(withDefaults());
         return http.build();
     }
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(userDetailsService());
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
+        authenticationProvider.setHideUserNotFoundExceptions(false);
+        return authenticationProvider;
+    }
 
+    @Bean
+    public AuthenticationManager authenticationManager() {
+        return new ProviderManager(authenticationProvider());
+    }
+
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authenticationProvider(authenticationProvider())
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .authorizeHttpRequests()
+                .requestMatchers(HttpMethod.OPTIONS).permitAll()
+                .requestMatchers("/**").permitAll()
+                .requestMatchers("/auth/login").permitAll()
+                .requestMatchers("/auth/logout").permitAll()
+                .requestMatchers("/swagger-ui.html").permitAll()
+                .requestMatchers("/doc.html").permitAll()
+                .requestMatchers("/webjars/springfox-swagger-ui/**").permitAll()
+                .requestMatchers("/swagger-resources").permitAll()
+                .requestMatchers("/v3/api-docs/**").permitAll()
+                .requestMatchers("/favicon.ico").permitAll()
+                .requestMatchers("/error").permitAll()
+                .anyRequest()
+                .authenticated();
+        return http.build();
+    }
 
 }
