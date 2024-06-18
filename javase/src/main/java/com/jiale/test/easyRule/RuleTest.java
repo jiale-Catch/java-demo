@@ -11,12 +11,12 @@ public class RuleTest {
 
     public static void main(String[] args) {
         testWeather();
-        test();
+//        test();
     }
    public  static  void  testWeather(){
        RulesEngineParameters parameters = new RulesEngineParameters().skipOnFirstAppliedRule(true);
        Facts  facts = new Facts();
-       facts.put("rain",true);
+       facts.put("rain",1==1);
        WeatherRule weatherRule = new WeatherRule();
        Rules rules = new Rules();
        rules.register(weatherRule);

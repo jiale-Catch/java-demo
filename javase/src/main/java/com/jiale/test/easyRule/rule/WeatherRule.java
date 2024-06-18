@@ -12,6 +12,10 @@ public class WeatherRule {
     public void takeAnUmbrella(){
         System.out.println("It rains, take an umbrella!");
     }
+    @Action
+    public void dontTakeAnUmbrella(){
+        System.out.println("It doesn't rain, don't take an umbrella!");
+    }
     @Priority
     public int getPriority() {
         return 3;
