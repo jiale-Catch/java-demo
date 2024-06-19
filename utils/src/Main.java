@@ -28,7 +28,6 @@ public class Main {
         writer.write(newRows);
         writer.flush();
         writer.close();
-
     }
 
 }
