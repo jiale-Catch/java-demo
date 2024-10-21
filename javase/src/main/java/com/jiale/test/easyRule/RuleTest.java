@@ -11,12 +11,12 @@ public class RuleTest {
 
     public static void main(String[] args) {
         testWeather();
-//        test();
+        test();
     }
    public  static  void  testWeather(){
        RulesEngineParameters parameters = new RulesEngineParameters().skipOnFirstAppliedRule(true);
        Facts  facts = new Facts();
-       facts.put("rain",1==1);
+       facts.put("rain", true);
        WeatherRule weatherRule = new WeatherRule();
        Rules rules = new Rules();
        rules.register(weatherRule);
@@ -33,7 +33,7 @@ public class RuleTest {
         Rules rules = new Rules();
         rules.register(new FizzRule());
         rules.register(new BuzzRule());
-//        rules.register(new FizzBuzzRule(new FizzRule(), new BuzzRule()));
+        rules.register(new FizzBuzzRule(new FizzRule(), new BuzzRule()));
         rules.register(new NonFizzBuzzRule());
 
         // 触发规则

@@ -1,33 +1,52 @@
 package com.jiale.test.thread;
 
 import java.util.ArrayList;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import java.util.concurrent.*;
 
 public class ComptableFuture {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ArrayList<CompletableFuture<?>> futureTasks = new ArrayList<>();
-        futureTasks.add(CompletableFuture.runAsync(() -> System.out.println(Thread.currentThread().getName() + ":hello")));
-        futureTasks.add(CompletableFuture.runAsync(() -> {
+    public static void main(String[] args)  {
+       test();
+
+        System.out.println("hello");
+    }
+
+
+    public static void  test(){
+        ThreadPoolExecutor threadPoolExecutor = getThreadPoolExecutor();
+        Future<Object> future = threadPoolExecutor.submit(() -> {
+            doSomething();
+            Thread.sleep(2000);
             System.out.println(Thread.currentThread().getName() + ":hello");
+            return null;
+        });
+        ThreadUtils.execute(() -> {
             try {
-                Thread.sleep(2000);
-                System.out.println("lines");
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                future.get(1, TimeUnit.SECONDS);
+            } catch (Exception e) {
+                future.cancel(true);
+                System.out.println("线程取消成功：" + future.isCancelled());
+                System.out.println("目前线程数为： "+threadPoolExecutor.getActiveCount() + ":hello");
             }
-        }));
-        futureTasks.add(CompletableFuture.supplyAsync(()-> {
-            System.out.println(Thread.currentThread().getName() + ":hello");
-            try {
-                Thread.sleep(4000);
-                System.out.println("lines");
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            return  200 ;
-        }));
-        CompletableFuture<Void> future = CompletableFuture.allOf(futureTasks.toArray(new CompletableFuture[0]));
-        future.join();
+        });
+        System.out.println("目前线程数为： "+threadPoolExecutor.getActiveCount() + ":hello");
+
+    }
+
+    public static void doSomething() throws InterruptedException {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println("线程被中断" + e.getMessage());
+            throw new InterruptedException(e.getMessage());
+        }
+        System.out.println("doSomething");
+    }
+    public static ThreadPoolExecutor getThreadPoolExecutor(){
+        return new ThreadPoolExecutor(
+                1,
+                1,
+                0L,
+                TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<>());
     }
 }

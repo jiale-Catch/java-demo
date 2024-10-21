@@ -90,26 +90,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authenticationProvider(authenticationProvider())
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.OPTIONS).permitAll()
-                .requestMatchers("/**").permitAll()
-                .requestMatchers("/auth/login").permitAll()
-                .requestMatchers("/auth/logout").permitAll()
-                .requestMatchers("/swagger-ui.html").permitAll()
-                .requestMatchers("/doc.html").permitAll()
-                .requestMatchers("/webjars/springfox-swagger-ui/**").permitAll()
-                .requestMatchers("/swagger-resources").permitAll()
-                .requestMatchers("/v3/api-docs/**").permitAll()
-                .requestMatchers("/favicon.ico").permitAll()
-                .requestMatchers("/error").permitAll()
-                .anyRequest()
-                .authenticated();
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/").permitAll()  // 公开访问
+                        .anyRequest().authenticated()
+                )
+                .formLogin(form -> form
+                        .loginPage("/login")  // 自定义登录页面
+                        .permitAll()  // 登录页面无需认证
+                )
+                .logout(logout -> logout.permitAll());  // 允许注销
         return http.build();
     }
-
 }

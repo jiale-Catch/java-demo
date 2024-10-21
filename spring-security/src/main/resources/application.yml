@@ -6,4 +6,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://129.204.158.168:3306/gale?useTimezone=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
     username: write
-    password: zjl123456
+    password: zijiale215

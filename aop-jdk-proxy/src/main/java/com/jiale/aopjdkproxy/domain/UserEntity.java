@@ -1,4 +1,4 @@
-package com.jiale.springsecurity.moudle.model.entity;
+package com.jiale.aopjdkproxy.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -6,8 +6,13 @@ import lombok.Data;
 @Data
 @TableName("users")
 public class UserEntity {
+
     private Integer id;
+
     private String username;
+
     private String password;
+
     private String phone;
+
 }

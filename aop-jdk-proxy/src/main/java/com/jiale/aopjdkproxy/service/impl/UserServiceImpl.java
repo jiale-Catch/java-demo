@@ -1,7 +1,11 @@
 package com.jiale.aopjdkproxy.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.jiale.aopjdkproxy.domain.User;
+import com.jiale.aopjdkproxy.domain.UserEntity;
+import com.jiale.aopjdkproxy.mpper.UserMapper;
 import com.jiale.aopjdkproxy.service.UserService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -10,9 +14,11 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Resource
+    private UserMapper userMapper;
     @Override
-    public List<User> findUserList() {
-        return Collections.singletonList(new User("zijiale",18));
+    public List<UserEntity> findUserList() {
+        return userMapper.selectList(new LambdaQueryWrapper<>());
     }
 
     @Override
