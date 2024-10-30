@@ -1,4 +1,4 @@
-package com.jiale.strategy;
+package com.jiale.design.strategy;
 
 /**
  * 环境类

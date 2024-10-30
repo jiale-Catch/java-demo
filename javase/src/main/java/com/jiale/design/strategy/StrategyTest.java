@@ -1,4 +1,4 @@
-package com.jiale.strategy;
+package com.jiale.design.strategy;
 
 /**
  * 策略模式 通常包含一个策略接口和多个具体策略实现类，以及一个环境类。策略接口定义了算法的公共接口，具体策略实现类实现了策略接口，环境类持有一个策略对象，并在运行时根据需要选择不同的策略。

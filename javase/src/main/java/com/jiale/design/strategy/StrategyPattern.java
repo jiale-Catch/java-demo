@@ -1,4 +1,4 @@
-package com.jiale.strategy;
+package com.jiale.design.strategy;
 
 /**
  * 抽象策略模式
