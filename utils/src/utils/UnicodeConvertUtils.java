@@ -106,8 +106,8 @@ public class UnicodeConvertUtils {
      * @param args
      */
     public static void main(String[] args) {
-//        System.out.println(toUnicode("你好"));
-//        System.out.println(toGb2312("\u4f60\u597d"));
+        System.out.println(toUnicode("你好"));
+        System.out.println(toGb2312("\u4f60\u597d"));
         // 等同于上面
         String urlEncode = "%u5de5%u7a0b%u5efa%u8bbe";
         String notEncode = "企业直采";

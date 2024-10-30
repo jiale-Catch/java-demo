@@ -32,6 +32,11 @@
             <artifactId>easy-rules-support</artifactId>
             <version>4.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1.1-jre</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

@@ -8,10 +8,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication
 @EnableAspectJAutoProxy
 @MapperScan("com.jiale.aopjdkproxy.mpper")
-public class AopJdkProxyApplication {
+public class App {
 
     public static void main(String[] args) {
-        SpringApplication.run(AopJdkProxyApplication.class, args);
+        SpringApplication.run(App.class, args);
     }
 
 }

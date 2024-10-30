@@ -21,7 +21,7 @@ public class ResponseResult<T> {
     /**
      * response code, 200 -> OK.
      */
-    private String status;
+    private Integer status;
 
     /**
      * response message.

@@ -3,9 +3,7 @@ import io.micrometer.common.util.StringUtils;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +12,7 @@ public class Main {
 
     public static void testwash(){
         CsvReader reader = CsvUtil.getReader();
-        CsvData read1 = reader.read(new File("D:\\test\\youshu\\有数-2024-06-12-公告类型-1.csv"),Charset.forName("GBK"));
+        CsvData read1 = reader.read(new File("D:\\test\\youshu\\有数-2024-06-12-公告类型-1.csv"),Charset.defaultCharset());
         List<CsvRow> rows = read1.getRows();
         List<CsvRow> newRows = new ArrayList<>();
         for (int i = 1; i < rows.size(); i++) {

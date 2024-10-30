@@ -5,7 +5,7 @@ spring:
     name: jdk17test
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://129.204.158.168:3306/gale?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://gale-bolg.cn:3306/gale?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: write
     password: zijiale215
   data:

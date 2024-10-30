@@ -14,10 +14,10 @@ import java.util.concurrent.locks.Lock;
  */
 public class JDK11Test {
     public static void main(String[] args) throws IOException, InterruptedException {
-//        testStringApi();
-//        testCollection();
-//        testHttpClient();
-//        threadTest();
+        testStringApi();
+        testCollection();
+        testHttpClient();
+        threadTest();
         test();
     }
 
